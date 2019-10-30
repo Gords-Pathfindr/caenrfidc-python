@@ -6,7 +6,7 @@ module = Extension('caenrfidc-python',
 	)
 
 setup (name = 'caenrfidc-python',
-		version		= '0.10.0',
+		version		= '0.10.1',
 		description	= 'CAENRFID client support.',
 		maintainer	= "Rodolfo Giometti",
 		maintainer_email= "giometti@cosino",

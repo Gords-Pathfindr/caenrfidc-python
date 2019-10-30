@@ -346,11 +346,12 @@ static PyObject *caenrfidc_set_power(PyObject *self, PyObject *args)
 
 static PyObject *caenrfidc_open(PyObject *self, PyObject *args)
 {
-	char *addr;
+	//char *addr;
+  char *port;
 	caenrfid_handle_obj *h;
 	int ret;
 
-	if (!PyArg_ParseTuple(args, "s", &addr))
+	if (!PyArg_ParseTuple(args, "s", &port))
 		return NULL;
 
 	h = new_caenrfid_handle_obj();
@@ -358,7 +359,7 @@ static PyObject *caenrfidc_open(PyObject *self, PyObject *args)
 		return NULL;
 
 	/* Start a new connection with the CAENRFIDD server */
-        ret = caenrfid_open(CAENRFID_PORT_TCP, addr, &h->handle);
+        ret = caenrfid_open(CAENRFID_PORT_RS232, port, &h->handle);
         if (ret < 0) {
 		PyErr_SetString(caenrfid_error, "cannot connect");
 		return NULL;
